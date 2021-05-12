@@ -1,7 +1,7 @@
 <?php
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController as login;
 use App\Http\Controllers\RegisterController as register;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +23,6 @@ Route::post('/login', [login::class, 'check']);
 
 Route::get('/register', [register::class, 'index']);
 Route::post('/register', [register::class, 'create']);
-
-Route::any('/restPwd', function () {
-    return view('welcome');
-});
 
 Route::any('/logout', function () {
     return view('welcome');

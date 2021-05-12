@@ -13,18 +13,16 @@
     <form action="/login" method="POST">
         @csrf
         <div class="form-group">
-            <label for="UserName">帳號</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="email">
+            <label for="UserName">Email:</label>
+            <input type="text" name="email" id="email" placeholder="email">
         </div>
         <div class="form-group">
-            <label for="UserName">密碼</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="password">
+            <label for="UserName">Password:</label>
+            <input type="password" name="password" id="password" placeholder="password">
         </div>
-        <button type="submit" class="btn btn-primary" id="submit" onclick="submit()">送出</button>
-        <a href="/register">Don't have account?</a>
-        @error('error')
-        <div class="alert alert-danger">{{ $errors->first('error') }}</div>
-        @enderror
+        <button type="submit" id="submit"">Submit</button>
+        <a href="/register">Don't have account?</a> @error('error') <div>{{ $errors->first('error') }}</div>
+            @enderror
     </form>
     @endguest
     @auth

@@ -18,11 +18,10 @@
     <form action="/register" id="registForm" method="POST">
         @csrf
         <div class="form-group">
-            <label for="username">User Name:</label>
-            <input type="text" class="@error('account') is-invalid @enderror" id="account" aria-describedby="account"
-                name="account">
+            <label for="username">Name:</label>
+            <input type="text" class="@error('account') is-invalid @enderror" id="account" name="account">
             @error('account')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div>{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
@@ -30,17 +29,17 @@
             <input type="password" class="@error('pasword') is-invalid @enderror" id="password"
                 aria-describedby="pasword" name="password">
             @error('password')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div>{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
             <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email">
             @error('email')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div>{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 
