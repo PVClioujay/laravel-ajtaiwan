@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -39,10 +40,10 @@ class RegisterController extends Controller
         } else {
             $user = new User;
             $user->name = $res->account;
-            $user->password = $res->password;
+            $user->password = Hash::make($res->password);
             $user->email = $res->email;
             $user->save();
-            return view('login/index',['msg' => 'success']);
+            return view('register/index',['msg' => 'registe success']);
         }
     }
 
