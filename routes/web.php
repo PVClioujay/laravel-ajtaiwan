@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [login::class, 'index']);
-Route::post('/login', [login::class, 'create']);
+Route::post('/login', [login::class, 'check']);
 
 Route::get('/register', [register::class, 'index']);
 Route::post('/register', [register::class, 'create']);
