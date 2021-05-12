@@ -1,39 +1,49 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class LoginController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * loging首頁
      */
     public function index()
     {
         //
-        return view('login/index');
+        return view('register/index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     * 建立使用者
      */
     public function create(Request $res)
     {
-        $user = new User;
-        $user->name = $res->account;
-        $user->password = $res->password;
-        $user->email = $res->email;
+        $validator = Validator::make($res->all(), [
+            'account' => 'required|max:10',
+            'password' => 'required',
+            'email' => 'required',
+        ]);
 
-        $user->save();
+        if ($validator->fails()) {
+            return redirect('register')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $user = new User;
+            $user->name = $res->account;
+            $user->password = $res->password;
+            $user->email = $res->email;
+            $user->save();
+            return view('login/index',['msg' => 'success']);
+        }
     }
 
     /**
