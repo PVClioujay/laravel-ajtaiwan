@@ -21,9 +21,13 @@ Route::get('/', function () {
 Route::get('/login', [login::class, 'index']);
 Route::post('/login', [login::class, 'check']);
 
+Route::get('/logout', [login::class, 'logout']);
+
+Route::get('/reset', function () {
+    return view('member/reset');
+});
+Route::post('/reset', [login::class, 'reset']);
+
 Route::get('/register', [register::class, 'index']);
 Route::post('/register', [register::class, 'create']);
 
-Route::any('/logout', function () {
-    return view('welcome');
-});

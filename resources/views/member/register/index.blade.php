@@ -9,7 +9,7 @@
     @if ( $msg ?? '')
     <script>
         alert('Registe Success');
-            location.href = 'login';
+            location.href = '/login';
     </script>
     @endif
 </head>

@@ -17,7 +17,7 @@ class RegisterController extends Controller
     public function index()
     {
         //
-        return view('register/index');
+        return view('member/register/index');
     }
 
     /**
@@ -43,7 +43,7 @@ class RegisterController extends Controller
             $user->password = Hash::make($res->password);
             $user->email = $res->email;
             $user->save();
-            return view('register/index', ['msg' => 'registe success']);
+            return view('member/register/index', ['msg' => 'registe success']);
         }
     }
 
