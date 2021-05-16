@@ -34,8 +34,6 @@ class Kernel extends ConsoleKernel
             Log::info('成功排程');
         })->timezone('Asia/Taipei')->everyMinute();
         $schedule->command('astro:starCrawl')->hourly();
-        $schedule->command('astro:starCrawl')->everyMinute();
-
     }
 
     /**
